@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root 'page#index'
+
+  get 'page/index'
+
+  get 'page/impressum'
+
+  get 'page/datenschutzerklaerung'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
