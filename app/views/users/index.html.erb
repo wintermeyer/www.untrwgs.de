@@ -1,0 +1,35 @@
+<% cache [I18n.locale, current_user, cache_key_for_all(User)] do %>
+<div class="email-content-body">
+  <h1>Listing Users</h1>
+
+  <table class="pure-table pure-table-horizontal">
+    <thead>
+      <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to 'Show', user, class: policy(user).show? ? 'pure-button':'pure-button pure-button-disabled' %></td>
+          <td><%= link_to 'Edit', edit_user_path(user), class: policy(user).edit? ? 'pure-button':'pure-button pure-button-disabled' %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: policy(user).destroy? ? 'pure-button':'pure-button pure-button-disabled' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New User', new_user_path, class: policy(User.new).new? ? 'pure-button':'pure-button pure-button-disabled' %>
+</div>
+<% end %>

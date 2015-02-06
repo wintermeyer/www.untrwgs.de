@@ -2,7 +2,22 @@
   <a href="#" class="nav-menu-button">Menu</a>
 
   <div class="nav-inner">
-    <button class="primary-button pure-button">Compose</button>
+
+    <div>
+      <% if current_user %>
+        <%= link_to current_user do %>
+        <img class="email-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="64" width="64" src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(current_user.email) %>" />
+        <% end %>
+        <p><%= link_to truncate(current_user.email, length: 18, omission: '...'), current_user %></p>
+        <br />
+        <%= link_to "Ausloggen", logout_path, class: "primary-button pure-button" %>
+        <hr />
+        <button class="primary-button pure-button">Compose</button>
+      <% else %>
+        <%#= link_to "Account erstellen", signup_path, class: "primary-button pure-button" %> or
+        <%= link_to "Einloggen", login_path, class: "primary-button pure-button" %>
+      <% end %>
+    </div>
 
     <div class="pure-menu pure-menu-open">
       <ul>

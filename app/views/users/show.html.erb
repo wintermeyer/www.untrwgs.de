@@ -1,0 +1,24 @@
+<% cache [I18n.locale, current_user, @user] do %>
+<div class="email-content-body">
+  <table class="pure-table pure-table-horizontal">
+    <tbody>
+        <tr>
+        <td><strong>First name:</strong></td>
+        <td><%= @user.first_name %></td>
+      </tr>
+        <tr>
+        <td><strong>Last name:</strong></td>
+        <td><%= @user.last_name %></td>
+      </tr>
+        <tr>
+        <td><strong>Gender:</strong></td>
+        <td><%= @user.gender %></td>
+      </tr>
+        <tr>
+        <td><strong>Email:</strong></td>
+        <td><%= @user.email %></td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+<% end %>

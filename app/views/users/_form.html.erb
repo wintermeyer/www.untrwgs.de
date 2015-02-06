@@ -1,0 +1,41 @@
+<%= form_for @user, html: { class: "pure-form pure-form-aligned" } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :gender_id %><br>
+    <%= f.collection_select :gender_id, Gender.order(:id),:id,:value, include_blank: false %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :first_name, 'Vorname' %><br>
+    <%= f.text_field :first_name, autofocus: true %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :last_name, 'Nachname' %><br>
+    <%= f.text_field :last_name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :email, 'E-Mail Adresse' %><br>
+    <%= f.text_field :email %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password, 'Password' %><br>
+    <%= f.password_field :password %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :password_confirmation, 'Password Wiederholung' %><br>
+    <%= f.password_field :password_confirmation %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit class: "pure-button pure-button-primary" %>
+  </fieldset>
+<% end %>

@@ -1,0 +1,17 @@
+<div class="email-content-body">
+  <h1>Einloggen</h1>
+  <%= form_tag sessions_path, html: { class: "pure-form pure-form-aligned" } do %>
+    <div class="field">
+      <%= label_tag :email, 'E-Mail' %><br>
+      <%= text_field_tag(:email, params[:email],
+           {autofocus: "autofocus"}) %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions">
+      <%= submit_tag "Log In", class: 'pure-button pure-button-primary' %>
+    </div>
+  <% end %>
+</div>

@@ -9,7 +9,30 @@
 </head>
 <body>
 
-  <%= yield %>
+<div id="layout" class="content pure-g">
+  <%= render "layouts/navigation" %>
+  <%= render "shared/posts_overview" %>
+
+  <% if flash.any? %>
+    <div class="email-content-header pure-g">
+      <div class="pure-u">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, class: "alert alert-#{key}") do %>
+          <p>
+            <%= value %>
+          </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="main" class="pure-u-1">
+    <div class="email-content">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
