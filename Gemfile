@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'pundit'
+gem 'gravatar-ultimate'
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,4 +46,5 @@ group :development, :test do
   gem 'spring'
 
   gem 'factory_girl_rails'
+  gem 'forgery'
 end

@@ -1,0 +1,16 @@
+<% cache [I18n.locale, current_user, @like] do %>
+<div class="email-content-body">
+  <table class="pure-table pure-table-horizontal">
+    <tbody>
+        <tr>
+        <td><strong>Likeable:</strong></td>
+        <td><%= @like.likeable %></td>
+      </tr>
+        <tr>
+        <td><strong>User:</strong></td>
+        <td><%= @like.user %></td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+<% end %>

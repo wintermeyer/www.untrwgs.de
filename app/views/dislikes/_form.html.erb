@@ -1,0 +1,25 @@
+<%= form_for @dislike, html: { class: "pure-form pure-form-aligned" } do |f| %>
+  <% if @dislike.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dislike.errors.count, "error") %> prohibited this dislike from being saved:</h2>
+
+      <ul>
+      <% @dislike.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :dislikeable_id %><br>
+    <%= f.text_field :dislikeable_id %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit class: "pure-button pure-button-primary" %>
+  </fieldset>
+<% end %>

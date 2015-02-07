@@ -1,0 +1,45 @@
+<%= form_for @post, html: { class: "pure-form pure-form-aligned" } do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :abstract %><br>
+    <%= f.text_field :abstract %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :state %><br>
+    <%= f.number_field :state %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :likes_count %><br>
+    <%= f.number_field :likes_count %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :dislikes_count %><br>
+    <%= f.number_field :dislikes_count %>
+  </fieldset>
+  <fieldset>
+    <%= f.submit class: "pure-button pure-button-primary" %>
+  </fieldset>
+<% end %>

@@ -1,0 +1,24 @@
+<% cache [I18n.locale, current_user, @post] do %>
+
+<div class="email-content-header pure-g">
+  <div class="pure-u-1-2">
+    <h1 class="email-content-title"><%= @post.title %></h1>
+    <p class="email-content-subtitle">
+      <a><%= @post.user %></a> <span>(<%= l @post.created_at, format: :short %>)</span>
+    </p>
+  </div>
+
+  <div class="email-content-controls pure-u-1-2">
+    <button class="secondary-button pure-button">Reply</button>
+    <button class="secondary-button pure-button">Forward</button>
+    <button class="secondary-button pure-button">Move to</button>
+  </div>
+</div>
+
+<div class="email-content-body">
+  <p>
+    <%= markdown @post.content %>
+  </p>
+</div>
+
+<% end %>
